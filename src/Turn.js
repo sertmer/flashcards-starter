@@ -1,5 +1,6 @@
 class Turn {
   constructor(guess, card) {
+    this.count = 0;
     
   };
 
