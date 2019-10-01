@@ -6,11 +6,11 @@ class Turn {
   };
 
   returnGuess() {
-    // returns the guess
+    return this.guess;
   };
 
   returnCard() {
-    // returns the card (in play?)
+    return this.card;
   };
 
   evaluateGuess() {
