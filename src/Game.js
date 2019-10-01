@@ -19,10 +19,15 @@ class Game {
   start() {
     // starts it all
     // instantiate cards
+    const deck = new Deck(prototypeQuestions);
     // push cards into deck (instantiates deck from array of cards??)
+
     // creates new round using deck (??)
+    const round = new Round(deck);
     // invokes printMessage in the CLI
+
     // invokes printQuestion to kick off helper functions that allow interaction via the CLI
+
   }
 }
 
