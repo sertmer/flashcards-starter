@@ -23,7 +23,7 @@ class Round {
 
   endRound() {
     // console.log's '**Round over!** You answered <>% of the quwstions correctly!'
-  }
+  };
 };
 
 module.exports = Round;
