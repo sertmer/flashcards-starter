@@ -10,7 +10,7 @@ describe('Turn', function() {
   let turn;
 
   beforeEach(() => {
-    card = new Card({ id: 1, question: 'What allows you to define a set of related information using key-value pairs?', answers: ['object', 'array', 'function'], correctAnswer: 'object' });
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
     turn = new Turn('object', card);
     });
 
@@ -51,10 +51,24 @@ describe('Turn', function() {
     });
     
     it('should evaluate if a guess is correct', function() {
-      
+      expect(turn.evaluateGuess()).to.equal(true);
+    });
+
+    it('should evaluate if a guess is false', function() {
+      turn = new Turn('function', card);
+      expect(turn.evaluateGuess()).to.equal(false);
+    });
+
+    it('should have a method called giveFeedback', function() {
+      expect(turn.giveFeedback).to.be.a('function');
+    });
+
+    it('should give feedback if a guess is true', function() {
+      expect(turn.giveFeedback()).to.equal('correct!');
+    });
+
+    it('should give feedback if a guess is false', function() {
+      turn = new Turn('function', card)
+      expect(turn.giveFeedback()).to.equal('incorrect!');
     });
 });
-
-// it('should', function() {
-
-// });

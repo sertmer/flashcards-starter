@@ -14,11 +14,19 @@ class Turn {
   };
 
   evaluateGuess() {
-    // returns boolean indicating is user's guess matches correct answer on card
+    if (this.guess === this.card.correctAnswer) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   giveFeedback() {
-    // returns either 'incorrect!' or 'correct!' based on if guess is correct or nah
+    if (this.evaluateGuess()) {
+      return 'correct!';
+    } else {
+      return 'incorrect!'
+    }
   };
 };
 
