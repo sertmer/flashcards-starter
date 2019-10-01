@@ -19,6 +19,7 @@ class Game {
   start() {
     // starts it all
     // instantiate cards
+    const deck = new Deck(prototypeQuestions);
     // push cards into deck (instantiates deck from array of cards??)
     // creates new round using deck (??)
     // invokes printMessage in the CLI
