@@ -27,7 +27,17 @@ describe('Round', function() {
   });
 
   it('should be an instance of Round', function() {
-    expect(round).to.be.an.instanceof(round);
+    expect(round).to.be.an.instanceof(Round);
+  });
+
+  it('should', function() {
+    console.log('deck @ 0', round.deck.cards[0]);
+    console.log('card1', card1);
+    expect(round.deck.cards[0]).to.equal(card1);
   });
 
 });
+
+// it('should', function() {
+//   expect;
+// });
