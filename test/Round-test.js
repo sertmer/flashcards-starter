@@ -22,22 +22,68 @@ describe('Round', function() {
     round = new Round(deck);
   });
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     expect(Round).to.be.a('function');
   });
 
-  it('should be an instance of Round', function() {
+  it('should be an instance of Round', () => {
     expect(round).to.be.an.instanceof(Round);
   });
 
-  it('should', function() {
-    console.log('deck @ 0', round.deck.cards[0]);
-    console.log('card1', card1);
-    expect(round.deck.cards[0]).to.equal(card1);
+  it('should start on turn 0', () => {
+    expect(round.turns).to.equal(0);
+  });
+
+  it('should start with a deck of cards', () => {
+    expect(round.deck).to.equal(deck)
+  });
+
+  it('should start with no incorrect guesses', () => {
+    expect(round.incorrectGuesses.length).to.equal(0);
+  });
+
+  it('should take it\'s current card from the top of the deck', () => {
+    expect(round.currentCard).to.equal(card1);
+
+    let card4 = new Card(
+      5,
+      "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
+      ["mutator method", "accessor method", "iteration method"],
+      "iteration method"
+    );
+
+    deck = new Deck([card4, card2, card3, card1]);
+    round = new Round(deck)
+    
+    expect(round.currentCard).to.equal(card4);
+  });
+
+  it('should return the current card', () => {
+    expect(round.returnCurrentCard()).to.equal(card1);
+  });
+
+  it('should be able to take a turn', () => {
+    // expect(round.takeTurn)
+  });
+
+  it('should keep track of how many turns have happend', () => {
+    // expect(round.takeTurn)
+  });
+
+  it('should evaluate each guess', () => {
+    // expect(round.takeTurn)
+  });
+
+  it('should should give feedback', () => {
+    // expect(round.takeTurn)
+  });
+
+  it('should store ID\'s of incorrect guesses', () => {
+    // expect(round.takeTurn)
   });
 
 });
 
-// it('should', function() {
+// it('should', () => {
 //   expect;
 // });
