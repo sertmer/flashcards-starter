@@ -11,17 +11,17 @@ class Game {
   }
 
   printMessage(deck) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 
   start() {
     let cards = [];
-    prototypeQuestions.forEach(function(question) {
+    prototypeQuestions.forEach(function (question) {
       const card = new Card(question.id, question.question, question.answers, question.correctAnswer);
       cards.push(card);
     });
