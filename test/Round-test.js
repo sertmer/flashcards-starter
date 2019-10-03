@@ -106,6 +106,14 @@ describe('Round', function() {
     expect(round.currentCard).to.equal(card3);
   });
 
+  it('should calculate the percentage of correct guesses', () => {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
+    round.takeTurn('Lex');
+    expect(round.incorrectGuesses.length).to.equal(2);
+    expect(round.calculatePercentCorrect()).to.equal(33);
+  });
+
 });
 
 // it('should', () => {

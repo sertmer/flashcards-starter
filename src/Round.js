@@ -25,6 +25,11 @@ class Round {
 
   calculatePercentCorrect() {
     // calc's and returns percentage of correct guesses
+    if (!this.incorrectGuesses.length) {
+      return 100;
+    } else {
+      return Math.floor((this.turn - this.incorrectGuesses.length) / this.turn * 100);
+    }
   };
 
   endRound() {
