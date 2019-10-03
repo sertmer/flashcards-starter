@@ -15,6 +15,7 @@ describe('Turn', function () {
       pairs?`,
       ['object', 'array', 'function'], 'object');
     turn = new Turn('object', card);
+    
   });
 
   it('should be a function', function () {
@@ -74,4 +75,5 @@ describe('Turn', function () {
     turn = new Turn('function', card)
     expect(turn.giveFeedback()).to.equal('Incorrect!');
   });
+
 });
