@@ -1,6 +1,8 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
+const Deck = require('../src/Deck');
+const Round = require('../src/Round');
 
 class Game {
   constructor() {
@@ -17,17 +19,11 @@ class Game {
   }
 
   start() {
-    // starts it all
-    // instantiate cards
     const deck = new Deck(prototypeQuestions);
-    // push cards into deck (instantiates deck from array of cards??)
-
-    // creates new round using deck (??)
     const round = new Round(deck);
-    // invokes printMessage in the CLI
-
-    // invokes printQuestion to kick off helper functions that allow interaction via the CLI
-
+    this.currentRound = round;
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 }
 

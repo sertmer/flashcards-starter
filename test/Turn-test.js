@@ -64,11 +64,11 @@ describe('Turn', function() {
     });
 
     it('should give feedback if a guess is true', function() {
-      expect(turn.giveFeedback()).to.equal('correct!');
+      expect(turn.giveFeedback()).to.equal('Correct!');
     });
 
     it('should give feedback if a guess is false', function() {
       turn = new Turn('function', card)
-      expect(turn.giveFeedback()).to.equal('incorrect!');
+      expect(turn.giveFeedback()).to.equal('Incorrect!');
     });
 });
