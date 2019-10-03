@@ -68,15 +68,10 @@ describe('Round', function() {
     expect(round.takeTurn).to.be.a('function');
   });
 
-  // it should instantiate a new turn
-  // it('should instantiate a new turn when takeTurn is invoked', () => {
-  //   expect
-  // });
-
-  it('should be aCardn instance of ', function() {
-    const card = new Card();
-    expect(card).to.be.an.instanceof(Card);
-  }); 
+  it('takeTurn method should instantiate a new turn', () => {
+    expect(round.takeTurn('sea otter')).to.equal('Correct!');
+    expect(round.takeTurn('spleen')).to.equal('Incorrect!');
+  });
 
   it('should keep track of how many turns have happened', () => {
     round.takeTurn('sea otter');
@@ -87,8 +82,8 @@ describe('Round', function() {
   });
 
   it('should give feedback for each guess', () => {
-    expect(round.takeTurn('sea otter')).to.equal('correct!');
-    expect(round.takeTurn('capybara')).to.equal('incorrect!')
+    expect(round.takeTurn('sea otter')).to.equal('Correct!');
+    expect(round.takeTurn('capybara')).to.equal('Incorrect!')
   });
 
   it('should store ID\'s of incorrect guesses', () => {
@@ -114,8 +109,13 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
-});
+  it('should end the round with a message including percent of answers correct', () => {
+    round.takeTurn('sea otter');
+    expect(round.endRound()).to.equal('** Round Over! ** You answered 100% of the questions correctly!');
+    round.takeTurn('spleen');
+    expect(round.endRound()).to.equal('** Round Over! ** You answered 50% of the questions correctly!');
+    round.takeTurn('Lex');
+    expect(round.endRound()).to.equal('** Round Over! ** You answered 33% of the questions correctly!');
+  });
 
-// it('should', () => {
-//   expect;
-// });
+});

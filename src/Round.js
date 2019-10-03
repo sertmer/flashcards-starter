@@ -24,7 +24,6 @@ class Round {
   };
 
   calculatePercentCorrect() {
-    // calc's and returns percentage of correct guesses
     if (!this.incorrectGuesses.length) {
       return 100;
     } else {
@@ -33,7 +32,7 @@ class Round {
   };
 
   endRound() {
-    // console.log's '**Round over!** You answered <>% of the quwstions correctly!'
+    return `** Round Over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 };
 
