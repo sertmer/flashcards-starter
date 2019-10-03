@@ -3,23 +3,23 @@ const expect = chai.expect;
 
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
 const Round = require('../src/Round');
 
-describe('Round', function() {
+describe('Round', function () {
 
   let card1;
   let card2;
   let card3;
   let deck;
   let round;
-  let turn;
 
   beforeEach(() => {
-    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
-    // turn = new Turn('sea otter', card1);
+    card1 = new Card(1, 'What is Robbie\'s favorite animal',
+      ['sea otter', 'pug', 'capybara'], 'sea otter');
+    card2 = new Card(14, 'What organ is Khalid missing?',
+      ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    card3 = new Card(12, 'What is Travis\'s middle name?',
+      ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
   });
@@ -49,14 +49,16 @@ describe('Round', function() {
 
     let card4 = new Card(
       5,
-      "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
+      `"What type of prototype method loops through the existing array and 
+      applies a callback function that may mutate each element and return 
+      a new value?"`,
       ["mutator method", "accessor method", "iteration method"],
       "iteration method"
     );
 
     deck = new Deck([card4, card2, card3, card1]);
     round = new Round(deck)
-    
+
     expect(round.currentCard).to.equal(card4);
   });
 
@@ -109,13 +111,13 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal(33);
   });
 
-  it('should end the round with a message including percent of answers correct', () => {
+  it('should let you know the percentage of answers correct', () => {
     round.takeTurn('sea otter');
-    expect(round.endRound()).to.equal('** Round Over! ** You answered 100% of the questions correctly!');
+    expect(round.endRound()).to.equal(`** Round Over! ** You answered 100% of the questions correctly!`);
     round.takeTurn('spleen');
-    expect(round.endRound()).to.equal('** Round Over! ** You answered 50% of the questions correctly!');
+    expect(round.endRound()).to.equal(`** Round Over! ** You answered 50% of the questions correctly!`);
     round.takeTurn('Lex');
-    expect(round.endRound()).to.equal('** Round Over! ** You answered 33% of the questions correctly!');
+    expect(round.endRound()).to.equal(`** Round Over! ** You answered 33% of the questions correctly!`);
   });
 
 });
