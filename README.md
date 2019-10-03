@@ -6,11 +6,12 @@ FlashCards is a quiz game, run right in your command line!
 
 ## Install instructions
 
-clone this repo down!
+Clone this repo down!
 
 ## How to Play
 
-In the terminal, run:
+In the terminal, navigate to the directory in which you cloned FlashCards. 
+Then, run:
 
 ```bash
 node index.js
