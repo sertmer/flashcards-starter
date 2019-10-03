@@ -1,7 +1,3 @@
-Abstract at the top (A sentence or two describing the project)
-A GIF of the working application
-Install/Setup instructions
-
 # Welcome to FlashCards! 
 
 FlashCards is a quiz game, run right in your command line!
