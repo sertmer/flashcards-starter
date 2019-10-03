@@ -70,7 +70,7 @@ describe('Round', function() {
 
   it('takeTurn method should instantiate a new turn', () => {
     expect(round.takeTurn('sea otter')).to.equal('Correct!');
-    expect(round.takeTurn('spleen')).to.equal('Incorrect!');
+    expect(round.takeTurn('capybara')).to.equal('Incorrect!');
   });
 
   it('should keep track of how many turns have happened', () => {
