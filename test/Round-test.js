@@ -13,11 +13,13 @@ describe('Round', function() {
   let card3;
   let deck;
   let round;
+  let turn;
 
   beforeEach(() => {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+    // turn = new Turn('sea otter', card1);
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
   });
@@ -31,7 +33,7 @@ describe('Round', function() {
   });
 
   it('should start on turn 0', () => {
-    expect(round.turns).to.equal(0);
+    expect(round.turn).to.equal(0);
   });
 
   it('should start with a deck of cards', () => {
@@ -63,23 +65,45 @@ describe('Round', function() {
   });
 
   it('should be able to take a turn', () => {
-    // expect(round.takeTurn)
+    expect(round.takeTurn).to.be.a('function');
   });
 
-  it('should keep track of how many turns have happend', () => {
-    // expect(round.takeTurn)
+  // it should instantiate a new turn
+  // it('should instantiate a new turn when takeTurn is invoked', () => {
+  //   expect
+  // });
+
+  it('should be aCardn instance of ', function() {
+    const card = new Card();
+    expect(card).to.be.an.instanceof(Card);
+  }); 
+
+  it('should keep track of how many turns have happened', () => {
+    round.takeTurn('sea otter');
+    expect(round.turn).to.equal(1);
+    round.takeTurn('sea otter');
+    round.takeTurn('sea otter');
+    expect(round.turn).to.equal(3);
   });
 
-  it('should evaluate each guess', () => {
-    // expect(round.takeTurn)
-  });
-
-  it('should should give feedback', () => {
-    // expect(round.takeTurn)
+  it('should give feedback for each guess', () => {
+    expect(round.takeTurn('sea otter')).to.equal('correct!');
+    expect(round.takeTurn('capybara')).to.equal('incorrect!')
   });
 
   it('should store ID\'s of incorrect guesses', () => {
-    // expect(round.takeTurn)
+    round.takeTurn('sea otter');
+    expect(round.incorrectGuesses).to.deep.equal([]);
+    round.takeTurn('capybara');
+    expect(round.incorrectGuesses).to.deep.equal([14]);
+  });
+
+  it('should make the next card become the current card after a round', () => {
+    expect(round.currentCard).to.equal(card1);
+    round.takeTurn();
+    expect(round.currentCard).to.equal(card2);
+    round.takeTurn();
+    expect(round.currentCard).to.equal(card3);
   });
 
 });
